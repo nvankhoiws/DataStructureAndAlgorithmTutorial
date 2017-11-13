@@ -11,34 +11,60 @@ public class SinglyLinkedList {
 
     public void add(Node newNode){
         Node tmp = first.getNext();
-        while(tmp != null) {
-            if (tmp.getNext() == null){
-
-            } else {
-
-            }
+        while(tmp.getNext() != null) {
             tmp = tmp.getNext();
         }
+        tmp.setNext(newNode);
     }
 
     public void remove(Node removedNode){
 
     }
 
-    public void size(){
-
+    public int size(){
+        int counter = 0;
+        Node node = first.getNext();
+        while (node != null) {
+            counter++;
+            node = node.getNext();
+        }
+        return counter;
     }
 
     public boolean isEmpty(){
-
+        return first.getNext() == null;
     }
 
     public boolean contains(Node node) {
-
+        int data = node.getData();
+        Node tmp = first.getNext();
+        do {
+            if (tmp.getData() == data){
+                return true;
+            } else {
+                tmp = tmp.getNext();
+                if (tmp == null){
+                    return false;
+                }
+            }
+        } while (true);
     }
 
     public int indexOf(Node node){
-
+        int counter = -1;
+        int data = node.getData();
+        Node tmp = first.getNext();
+        do {
+            if (tmp.getData() == data){
+                return ++counter;
+            } else {
+                counter++;
+                tmp = tmp.getNext();
+                if (tmp == null){
+                    return -1;
+                }
+            }
+        } while (true);
     }
 
     public Node get(int index){
@@ -54,9 +80,6 @@ public class SinglyLinkedList {
     }
 
     public void clear(){
-
+        first = null;
     }
-
-    List list = new ArrayList()
-
 }
