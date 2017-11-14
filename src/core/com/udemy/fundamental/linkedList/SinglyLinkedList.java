@@ -10,11 +10,16 @@ public class SinglyLinkedList {
     Node first;
 
     public void add(Node newNode){
-        Node tmp = first.getNext();
-        while(tmp.getNext() != null) {
-            tmp = tmp.getNext();
+        if (first == null){
+            first = new Node();
+            first.setNext(newNode);
+        } else {
+            Node tmp = first.getNext();
+            while(tmp.getNext() != null) {
+                tmp = tmp.getNext();
+            }
+            tmp.setNext(newNode);
         }
-        tmp.setNext(newNode);
     }
 
     public void remove(Node removedNode){
@@ -67,19 +72,63 @@ public class SinglyLinkedList {
         } while (true);
     }
 
-    public Node get(int index){
-
+    public Node get(int index) {
+        Node node = first.getNext();
+        int currentIndex = 0;
+        while (currentIndex <= index) {
+            if (currentIndex == index) {
+                return node;
+            } else {
+                currentIndex++;
+                node = node.getNext();
+            }
+        }
+        return null;
     }
 
     public void set(int index, Node node){
+        Node tmp = first.getNext();
+        int count = 0;
+        while(count <= index){
+            if (count ==  index){
+                tmp.setData(node.getData());
+            } else {
+                tmp = tmp.getNext();
+            }
+            count++;
+        }
 
     }
 
     public void add(int index, Node node){
+        Node tmp = first.getNext();
+        Node prevNode = first;
+        int count = 0;
+        while(count <= index){
+            if (count == index) {
+                prevNode.setNext(node);
+                node.setNext(tmp);
+            } else {
+                prevNode = tmp;
+                tmp = tmp.getNext();
+            }
+            count++;
+        }
 
     }
 
     public void clear(){
         first = null;
+    }
+
+    @Override
+    public String toString() {
+        String represented = "[ ";
+        Node tmp = (first != null) ? first.getNext() : null;
+        while (tmp != null && tmp.getNext() == null) {
+            represented += tmp.getData() + "\t";
+        }
+        represented += "]";
+        return represented;
     }
 }

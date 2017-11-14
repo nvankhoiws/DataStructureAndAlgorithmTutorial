@@ -4,6 +4,14 @@ public class Node {
     private int data;
     private Node next = null;
 
+    public Node(){
+
+    }
+
+    public Node(int data){
+        this.data = data;
+    }
+
     public void setData(int data) {
         this.data = data;
     }
