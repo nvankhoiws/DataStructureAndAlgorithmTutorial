@@ -7,18 +7,56 @@ import java.util.List;
  * Created by Khoi.NguyenVan@nttdata.com on 11/13/20179:16 AM.
  */
 public class SinglyLinkedList {
-    Node first;
+    private Node first;
 
-    public void add(Node newNode){
-        if (first == null){
-            first = new Node();
-            first.setNext(newNode);
+    public SinglyLinkedList(){
+
+    }
+
+    public void add(int data){
+        Node tmp = first;
+        if (tmp == null) {
+            tmp = new Node();
+            tmp.setData(data);
+            tmp.setNext(first);
+            first = tmp;
         } else {
-            Node tmp = first.getNext();
-            while(tmp.getNext() != null) {
+            while(tmp.getNext() != null){
                 tmp = tmp.getNext();
             }
-            tmp.setNext(newNode);
+            tmp.setNext(new Node(data));
+        }
+    }
+
+    public void add(int index, int data){
+        Node newNode = new Node(data);
+        Node tmp = first;
+        int count = -1;
+//        0 1 2
+//        0 1 101
+//        index = 2
+//        count = -1
+//-> tmp 0, count = -1
+//-> tmp 1, count = 0 = 2 - 2
+//-> tmp 2, count = 1
+        while(count < index - 1){
+            tmp = tmp.getNext();
+            count++;
+        }
+        newNode.setNext(tmp.getNext());
+        tmp.setNext(newNode);
+    }
+
+    public void set(int index, Node node){
+        Node tmp = first.getNext();
+        int count = 0;
+        while(count <= index){
+            if (count ==  index){
+                tmp.setData(node.getData());
+            } else {
+                tmp = tmp.getNext();
+            }
+            count++;
         }
     }
 
@@ -86,47 +124,17 @@ public class SinglyLinkedList {
         return null;
     }
 
-    public void set(int index, Node node){
-        Node tmp = first.getNext();
-        int count = 0;
-        while(count <= index){
-            if (count ==  index){
-                tmp.setData(node.getData());
-            } else {
-                tmp = tmp.getNext();
-            }
-            count++;
-        }
-
-    }
-
-    public void add(int index, Node node){
-        Node tmp = first.getNext();
-        Node prevNode = first;
-        int count = 0;
-        while(count <= index){
-            if (count == index) {
-                prevNode.setNext(node);
-                node.setNext(tmp);
-            } else {
-                prevNode = tmp;
-                tmp = tmp.getNext();
-            }
-            count++;
-        }
-
-    }
-
     public void clear(){
         first = null;
     }
 
     @Override
     public String toString() {
-        String represented = "[ ";
-        Node tmp = (first != null) ? first.getNext() : null;
-        while (tmp != null && tmp.getNext() == null) {
+        String represented = "[\t";
+        Node tmp = first;
+        while (tmp != null) {
             represented += tmp.getData() + "\t";
+            tmp = tmp.getNext();
         }
         represented += "]";
         return represented;
