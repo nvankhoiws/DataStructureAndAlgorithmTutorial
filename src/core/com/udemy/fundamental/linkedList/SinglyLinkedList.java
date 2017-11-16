@@ -13,6 +13,7 @@ public class SinglyLinkedList {
 
     }
 
+    // done
     public void add(int data){
         Node tmp = first;
         if (tmp == null) {
@@ -27,116 +28,143 @@ public class SinglyLinkedList {
             tmp.setNext(new Node(data));
         }
     }
-
+    // done
     public void add(int index, int data){
-        Node newNode = new Node(data);
-        Node tmp = first;
-        int count = -1;
-//        0 1 2
-//        0 1 101
-//        index = 2
-//        count = -1
-//-> tmp 0, count = -1
-//-> tmp 1, count = 0 = 2 - 2
-//-> tmp 2, count = 1
-        while(count < index - 1){
-            tmp = tmp.getNext();
-            count++;
-        }
-        newNode.setNext(tmp.getNext());
-        tmp.setNext(newNode);
-    }
-
-    public void set(int index, Node node){
-        Node tmp = first.getNext();
-        int count = 0;
-        while(count <= index){
-            if (count ==  index){
-                tmp.setData(node.getData());
-            } else {
+        if (index >= size() + 1 || index < 0) {
+            System.out.println("SinglyLinkedList is out of bound.");
+        } else {
+            Node newNode = new Node(data);
+            Node tmp = first;
+            int count = 0;
+            if (index == 0) {
+                newNode.setNext(tmp);
+                first = newNode;
+            } else if (index == 1){
                 tmp = tmp.getNext();
+                newNode.setNext(tmp);
+                first.setNext(newNode);
+            } else {
+                while(count < index - 1){
+                    tmp = tmp.getNext();
+                    count++;
+                }
+                newNode.setNext(tmp.getNext());
+                tmp.setNext(newNode);
             }
-            count++;
         }
     }
-
-    public void remove(Node removedNode){
-
-    }
-
-    public int size(){
-        int counter = 0;
-        Node node = first.getNext();
-        while (node != null) {
-            counter++;
-            node = node.getNext();
-        }
-        return counter;
-    }
-
-    public boolean isEmpty(){
-        return first.getNext() == null;
-    }
-
-    public boolean contains(Node node) {
-        int data = node.getData();
-        Node tmp = first.getNext();
-        do {
-            if (tmp.getData() == data){
-                return true;
-            } else {
+    // done
+    public void set(int index, int data){
+        if (index >= size() + 1 || index < 0) {
+            System.out.println("SinglyLinkedList is out of bound.");
+        } else {
+            Node newNode = new Node(data);
+            Node tmp = first;
+            int count = 0;
+            if (index == 0) {
+                newNode.setNext(tmp.getNext());
+                first = newNode;
+            } else if (index == 1){
                 tmp = tmp.getNext();
-                if (tmp == null){
-                    return false;
+                newNode.setNext(tmp.getNext());
+                first.setNext(newNode);
+            } else if (index == size()){
+                Node lastNode = get(size() - 1);
+                lastNode.setNext(newNode);
+            } else {
+                while(count < index){
+                    tmp = tmp.getNext();
+                    count++;
+                }
+                newNode.setNext(tmp.getNext());
+                tmp.setNext(newNode);
+            }
+        }
+    }
+
+    // done
+    public void remove(int data){
+        for (int i = 0; i < size(); i++){
+            Node currentNode = get(i);
+            if (currentNode.getData() == data) {
+                if (i == 0 ){
+                    first = currentNode.getNext();
+                } else {
+                    Node prevNode = get(i - 1);
+                    prevNode.setNext(currentNode.getNext());
                 }
             }
-        } while (true);
+        }
     }
 
-    public int indexOf(Node node){
-        int counter = -1;
-        int data = node.getData();
-        Node tmp = first.getNext();
-        do {
-            if (tmp.getData() == data){
-                return ++counter;
-            } else {
+    // done
+    public void remove(int index, boolean flagRemoveByIndex){
+        Node currentNode = get(index);
+        remove(currentNode.getData());
+    }
+
+    // done
+    public int size(){
+        Node tmp = first;
+        if (tmp == null){
+            return 0;
+        } else {
+            int counter = 0;
+            while (tmp != null) {
                 counter++;
                 tmp = tmp.getNext();
-                if (tmp == null){
-                    return -1;
-                }
             }
-        } while (true);
+            return counter;
+        }
+    }
+    // done
+    public boolean isEmpty(){
+        return size() == 0;
+    }
+    // done
+    public boolean contains(int data) {
+        return indexOf(data) > -1;
+    }
+    // done
+    public int indexOf(int data){
+        for (int i = 0; i < size(); i++){
+            Node currentNode = get(i);
+            if (currentNode.getData() == data) {
+                return i;
+            }
+        }
+        return -1;
     }
 
+    // done
     public Node get(int index) {
-        Node node = first.getNext();
-        int currentIndex = 0;
-        while (currentIndex <= index) {
-            if (currentIndex == index) {
-                return node;
-            } else {
+        if (index < 0 || index >= size()) {
+            System.out.println("SinglyLinkedList is out of bound: " + index);
+            return null;
+        } else {
+            Node node = first;
+            int currentIndex = 0;
+            while (currentIndex < index) {
                 currentIndex++;
                 node = node.getNext();
             }
+            return node;
         }
-        return null;
     }
-
+    //done
     public void clear(){
         first = null;
     }
-
-    @Override
-    public String toString() {
-        String represented = "[\t";
+    //done
+    public void displayAsString() {
+        System.out.println("===================");
         Node tmp = first;
+        int count = 0;
         while (tmp != null) {
-            represented += tmp.getData() + "\t";
+            System.out.println("Node no " + count + " | " + tmp.getData());
             tmp = tmp.getNext();
+            count++;
         }
-        represented += "]";
-        return represented;
+        System.out.println("===================");
     }
 }
