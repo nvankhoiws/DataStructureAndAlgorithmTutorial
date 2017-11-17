@@ -50,5 +50,8 @@ public class SinglyLinkedListApp {
         System.out.println(singlyLinkedList.contains(111));
         System.out.println(singlyLinkedList.contains(1000));
 
+        singlyLinkedList.clear();
+        singlyLinkedList.displayAsString();
+
     }
 }
