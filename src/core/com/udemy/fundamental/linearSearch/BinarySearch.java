@@ -9,6 +9,10 @@ package core.com.udemy.fundamental.linearSearch;
  */
 public class BinarySearch {
 
-    public static void binarySearch(int[] array, )
+    public static int binarySearch(int[] array, int data){
+        int returned = -1;
+        if (array[array.length/2])
+        return returned;
+    }
 
 }
