@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.queue;
+package core.com.udemy.fundamental.dataStructures.queue;
 
 public class Queue {
     private int[] queueArray;

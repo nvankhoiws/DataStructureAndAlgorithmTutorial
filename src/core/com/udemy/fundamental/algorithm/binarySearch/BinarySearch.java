@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.binarySearch;
+package core.com.udemy.fundamental.algorithm.binarySearch;
 
 /**
  * Created by Khoi.NguyenVan@nttdata.com on 11/20/20175:40 PM.

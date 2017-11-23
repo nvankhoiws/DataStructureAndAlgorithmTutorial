@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.stack;
+package core.com.udemy.fundamental.dataStructures.stack;
 
 public class ReverseString {
     public static void main(String[] args) {

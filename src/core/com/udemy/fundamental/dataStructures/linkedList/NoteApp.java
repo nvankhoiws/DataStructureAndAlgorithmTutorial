@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.linkedList;
+package core.com.udemy.fundamental.dataStructures.linkedList;
 
 public class NoteApp {
     public static void main(String[] args) {

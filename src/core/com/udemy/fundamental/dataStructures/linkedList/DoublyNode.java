@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.linkedList;
+package core.com.udemy.fundamental.dataStructures.linkedList;
 
 /**
  * Created by Khoi.NguyenVan@nttdata.com on 11/17/201711:42 AM.

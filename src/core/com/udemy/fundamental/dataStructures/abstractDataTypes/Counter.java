@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.abstractDataTypes;
+package core.com.udemy.fundamental.dataStructures.abstractDataTypes;
 
 public class Counter {
     private String name;

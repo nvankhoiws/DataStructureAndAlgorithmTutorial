@@ -1,7 +1,4 @@
-package core.com.udemy.fundamental.linkedList;
-
-import java.util.ArrayList;
-import java.util.List;
+package core.com.udemy.fundamental.dataStructures.linkedList;
 
 /**
  * Created by Khoi.NguyenVan@nttdata.com on 11/13/20179:16 AM.

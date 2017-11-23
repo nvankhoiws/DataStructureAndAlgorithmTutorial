@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.linearSearch;
+package core.com.udemy.fundamental.algorithm.linearSearch;
 
 /**
  * Created by Khoi.NguyenVan@nttdata.com on 11/20/201712:51 PM.

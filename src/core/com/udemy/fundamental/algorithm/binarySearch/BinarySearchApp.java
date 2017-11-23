@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.binarySearch;
+package core.com.udemy.fundamental.algorithm.binarySearch;
 
 public class BinarySearchApp {
     public static void main(String[] args) {

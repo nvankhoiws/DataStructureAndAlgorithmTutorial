@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.abstractDataTypes;
+package core.com.udemy.fundamental.dataStructures.abstractDataTypes;
 
 public class App {
     public static void main(String[] args) {

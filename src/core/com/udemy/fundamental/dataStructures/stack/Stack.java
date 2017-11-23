@@ -1,4 +1,4 @@
-package core.com.udemy.fundamental.stack;
+package core.com.udemy.fundamental.dataStructures.stack;
 
 import java.util.ArrayList;
 import java.util.List;
