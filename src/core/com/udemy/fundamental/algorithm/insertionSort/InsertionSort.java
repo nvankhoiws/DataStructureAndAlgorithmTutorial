@@ -65,20 +65,4 @@ public class InsertionSort {
         }
         return array;
     }
-
-    public static int[] insertionSortWithBinarySearch(int[] array) {
-        for (int i = 1; i < array.length; i++) {
-            int neededSortValue = array[i];
-            int currentIndex = i - 1;
-            for (; currentIndex > -1; currentIndex--) {
-                if (neededSortValue < array[currentIndex]) {
-                    array[currentIndex + 1] = array[currentIndex];
-                } else {
-                    break;
-                }
-            }
-            array[currentIndex + 1] = neededSortValue;
-        }
-        return array;
-    }
 }
