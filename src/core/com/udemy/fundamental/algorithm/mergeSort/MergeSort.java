@@ -16,21 +16,21 @@ public class MergeSort {
 //        }
 //        System.out.println("]");
 
-        int[] sortedArray = merge(new int[]{1,3,5,7,9,0,2,4,6,8,10,11,13,14,17,19,20,22,24,26,28,30}, 0, 4, 9);
-        System.out.print("[\t");
-        for (int i = 0; i < sortedArray.length; i++) {
-            System.out.print(String.valueOf(sortedArray[i]) + '\t');
-        }
-        System.out.println("]");
+//        int[] sortedArray = merge(new int[]{1,3,5,7,9,0,2,4,6,8,10,11,13,14,17,19,20,22,24,26,28,30}, 0, 4, 9);
+//        System.out.print("[\t");
+//        for (int i = 0; i < sortedArray.length; i++) {
+//            System.out.print(String.valueOf(sortedArray[i]) + '\t');
+//        }
+//        System.out.println("]");
     }
 
 //    public static int[] mergeSort(int[] array) {
 //
 //    }
 
-    public static int[] merge(int[] array, int p, int q, int r) {
-        if () {
-
-        }
-    }
+//    public static int[] merge(int[] array, int p, int q, int r) {
+//        if () {
+//
+//        }
+//    }
 }
