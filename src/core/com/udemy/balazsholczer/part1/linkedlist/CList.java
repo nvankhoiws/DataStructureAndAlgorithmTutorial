@@ -1,9 +1,9 @@
 package core.com.udemy.balazsholczer.part1.linkedlist;
 
-public interface List<T> {
+public interface CList<T> {
     void insert(T data);
 
-    void remove(T data);
+    Node remove(T data);
 
     void traverseList();
 
