@@ -8,6 +8,11 @@ public class EuclidGCD {
         System.out.println(gcdRecursive(7, 5));
         System.out.println(gcdIterative(30, 100));
         System.out.println(gcdRecursive(30, 100));
+
+        long start = System.currentTimeMillis();
+        gcdRecursive(464131524, 464);
+        long end = System.currentTimeMillis();
+        System.out.println("The al takes " + (end-start) + "ms");
     }
 
     public static int gcdIterative(int s, int e) {
@@ -19,6 +24,7 @@ public class EuclidGCD {
         return s;
     }
 
+    // this algorithm same with gcdRecursive with accumulator, because s is accutal accumulator
     public static int gcdRecursive(int s, int e) {
         if (e == 0) return s;
         return gcdRecursive(e, s % e);
