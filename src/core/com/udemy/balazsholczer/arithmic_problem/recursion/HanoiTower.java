@@ -8,6 +8,8 @@ public class HanoiTower {
 
     public static void main(String[] args) {
         solve(3, 1, 2, 3);
+
+//        solveHanoiProblem(3, 'A', 'B', 'C');
     }
 
     public static void solve(int n, int rodFrom, int rodAuxiliary, int rodTo) {
@@ -16,10 +18,20 @@ public class HanoiTower {
             System.out.println("Solved problem with rodFrom " + rodFrom + " rodAuxiliary " + rodAuxiliary + " rodTo " + rodTo);
             System.out.println("Counter = " + counter);
         }
+        solve(n-1, rodFrom, rodTo, rodAuxiliary);
+        solve(n-2, rodAuxiliary, rodFrom, rodTo);
+    }
 
-        solve(n-1, rodAuxiliary, rodFrom, rodTo);
-        solve(n-2, rodFrom, rodAuxiliary, rodTo);
+    public static void solveHanoiProblem(int n, char rodFrom, char middleRod, char rodTo){
 
+        if( n == 1 ){
+            System.out.println("Plate 1 from " + rodFrom + " to " + rodTo);
+            return;
+        }
+
+        solveHanoiProblem(n-1, rodFrom, rodTo, middleRod);
+        System.out.println("Plate " + n + " from " + rodFrom + " to " + rodTo);
+        solveHanoiProblem(n-1, middleRod, rodFrom, rodTo);
     }
 
 }
