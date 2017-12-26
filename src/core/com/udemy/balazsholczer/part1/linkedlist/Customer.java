@@ -20,7 +20,11 @@ public class Customer implements Comparable<Customer> {
 
     @Override
     public int compareTo(Customer o) {
-        return (this.age < o.age) ? -1 : ((this.age > o.age) ? 1 : 0);
+        // compare both name and age
+        return (this.age < o.age) ? -1 : ((this.age > o.age) ? 1 : ((this.name.equalsIgnoreCase(o.name)) ? 0 : -1));
+
+        // compare only the age
+//        return (this.age < o.age) ? -1 : ((this.age > o.age) ? 1 : 0);
     }
 
     @Override

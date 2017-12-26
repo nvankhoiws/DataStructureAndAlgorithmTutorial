@@ -30,30 +30,31 @@ public class CLinkedList<T extends Comparable<T>> implements CList<T> {
         }
     }
 
-    public Node<T> remove(T data) {
+    @Override
+    public void remove(T data) {
         if (root != null) {
             if (root.getData().equals(data)) {
                 size--;
                 Node removed  = root;
                 root = root.getNextNode();
-                return removed;
+                return;
             } else {
-                return removeByTraversing(data, root, root.getNextNode());
+                removeByTraversing(data, root, root.getNextNode());
             }
-        } else return null;
+        } else return;
     }
 
-    private Node<T> removeByTraversing(T data, Node previousNode, Node currentNode) {
+    private void removeByTraversing(T data, Node previousNode, Node currentNode) {
         while(currentNode != null) {
             if (currentNode.getData().compareTo(data ) == 0) {
                 previousNode.setNextNode(currentNode.getNextNode());
                 size--;
-                return currentNode;
+                return;
             }
             previousNode = currentNode;
             currentNode = currentNode.getNextNode();
         }
-        return null;
+        return;
     }
 
     @Override
