@@ -30,7 +30,6 @@ public class CLinkedList<T extends Comparable<T>> implements CList<T> {
         }
     }
 
-    @Override
     public Node<T> remove(T data) {
         if (root != null) {
             if (root.getData().equals(data)) {
@@ -61,7 +60,7 @@ public class CLinkedList<T extends Comparable<T>> implements CList<T> {
     public void traverseList() {
         Node<T> node = this.root;
         while( node != null){
-            System.out.print(node.getData() + "-");
+            System.out.print(node.getData() + " -> ");
             node = node.getNextNode();
         }
     }
@@ -70,4 +69,5 @@ public class CLinkedList<T extends Comparable<T>> implements CList<T> {
     public int size() {
         return size;
     }
+
 }

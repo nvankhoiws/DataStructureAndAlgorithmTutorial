@@ -1,9 +1,11 @@
 package core.com.udemy.balazsholczer.part1.linkedlist;
 
-public interface CList<T> {
+import java.util.List;
+
+public interface CList<T extends Comparable<T>> extends List<T> {
     void insert(T data);
 
-    Node remove(T data);
+    Node<T> remove(T data);
 
     void traverseList();
 
